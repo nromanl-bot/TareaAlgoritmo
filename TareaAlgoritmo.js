@@ -292,6 +292,40 @@ function bloque4_ej5() {
   let promI = (sumaI / cI).toFixed(2);
   alert(`Promedio de pares: ${promP}\nPromedio de impares: ${promI}`);
 }
+//TEST NOLBER ROMAN
+function transformarFrases(frases) {
+  let resultado = [];
+
+  for (let i = 0; i < frases.length; i++) {
+    let frase = frases[i];
+    let palabra = "";
+    let nuevaFrase = "";
+
+    for (let j = 0; j <= frase.length; j++) {
+      let caracter = frase[j];
+
+      
+      if (caracter === " " || j === frase.length) {
+        if (palabra.length > 0) {
+          let parteMayus = "";
+          
+          for (let k = 0; k < palabra.length - 1; k++) {
+            parteMayus += palabra[k].toUpperCase();
+          }
+        
+          let ultima = palabra[palabra.length - 1].toLowerCase();
+          nuevaFrase += parteMayus + ultima + (caracter === " " ? " " : "");
+        }
+        palabra = ""; 
+      } else {
+        palabra += caracter; 
+      }
+    }
+    resultado.push(nuevaFrase);
+  }
+
+  console.log(resultado);
+}
 
 
 
